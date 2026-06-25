@@ -1,0 +1,9 @@
+services:
+  plane-backend:
+    build: .
+    container_name: plane-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
