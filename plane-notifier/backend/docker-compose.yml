@@ -1,0 +1,15 @@
+services:
+  plane_notifier:
+    build: .
+    container_name: plane_notifier_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - HOME_LAT=40.7128       # REPLACE WITH YOUR LATITUDE
+      - HOME_LON=-74.0060      # REPLACE WITH YOUR LONGITUDE
+      - TELEGRAM_BOT_TOKEN=YOUR_BOT_TOKEN
+      - TELEGRAM_CHAT_IDS=YOUR_CHAT_ID
+      - DB_PATH=/app/data/plane_notifier.db
+    volumes:
+      - ./data:/app/data
